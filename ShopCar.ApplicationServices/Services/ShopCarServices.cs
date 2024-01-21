@@ -1,12 +1,8 @@
-﻿using ShopCar.Core.Dto;
+﻿using Microsoft.EntityFrameworkCore;
+using ShopCar.Core.Domain;
+using ShopCar.Core.Dto;
 using ShopCar.Core.ServiceInterface;
 using ShopCar.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopCar.ApplicationServices.Services
 {
@@ -19,9 +15,9 @@ namespace ShopCar.ApplicationServices.Services
             _context = context;
         }
 
-        public async Task<Car> Create(ShopCarDto dto)
+        public async Task<ShopCarDomain> Create(ShopCarDto dto)
         {
-            Car car = new Car();
+            ShopCarDomain car = new ShopCarDomain();
 
             car.Id = Guid.NewGuid();
             car.Brand = dto.Brand;
@@ -36,9 +32,9 @@ namespace ShopCar.ApplicationServices.Services
             return car;
         }
 
-        public async Task<Car> Update(ShopCarDto dto)
+        public async Task<ShopCarDomain> Update(ShopCarDto dto)
         {
-            var domain = new Car()
+            var domain = new ShopCarDomain()
             {
                 Id = dto.Id,
                 Brand = dto.Brand,
@@ -54,7 +50,7 @@ namespace ShopCar.ApplicationServices.Services
             return domain;
         }
 
-        public async Task<Car> Delete(Guid id)
+        public async Task<ShopCarDomain> Delete(Guid id)
         {
             var carId = await _context.Cars
                 .FirstOrDefaultAsync(x => x.Id == id);
@@ -64,7 +60,7 @@ namespace ShopCar.ApplicationServices.Services
             return carId;
         }
 
-        public async Task<Car> GetAsync(Guid id)
+        public async Task<ShopCarDomain> GetAsync(Guid id)
         {
             var result = await _context.Cars
                 .FirstOrDefaultAsync(x => x.Id == id);
