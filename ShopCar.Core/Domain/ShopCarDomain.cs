@@ -1,6 +1,12 @@
-﻿namespace ShopCar.Models.ShopCar
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ShopCar.Core.Domain
 {
-    public class ShopCarDeleteViewModel
+    public class ShopCarDomain
     {
         public Guid? Id { get; set; }
         public int Price { get; set; }

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShopCar.Core\ShopCar.Core.csproj" />
     <ProjectReference Include="..\ShopCar.Data\ShopCar.Data.csproj" />
   </ItemGroup>
 
