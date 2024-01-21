@@ -11,10 +11,10 @@ namespace ShopCar.Controllers
         private readonly CarShopContext _context;
         private readonly IShopCarServices _carServices;
 
-        public ShopCarController(CarShopContext context, IShopCarServices carServices)
+        public ShopCarController(CarShopContext context, IShopCarServices shopCarServices)
         {
             _context = context;
-            _carServices = carServices;
+            _carServices = shopCarServices;
         }
 
         public IActionResult Index()
